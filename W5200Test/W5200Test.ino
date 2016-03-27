@@ -20,7 +20,7 @@ modified 9 Apr 2012
 by Tom Igoe
 
 */
-#include "SPI\src\SPI.h"
+#include <SPI.h>
 #include <Ethernet_Shield_W5200\EthernetV2_0.h>
 
 //端口定义Dreamer MEGA X2 PORT
@@ -62,7 +62,6 @@ void setup() {
 
 	// start the Ethernet connection and the server:
 	Ethernet.begin(mac, ip);
-	delay(200);
 	server.begin();
 	Serial.print("server is at ");
 	Serial.println(Ethernet.localIP());
