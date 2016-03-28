@@ -1,7 +1,7 @@
 ﻿/*
- Name:		W5200Test.ino
- Created:	3/27/2016 5:46:32 AM
- Author:	Vladimir
+Name:		W5200Test.ino
+Created:	3/27/2016 5:46:32 AM
+Author:	Vladimir
 */
 
 /*
@@ -21,8 +21,8 @@ by Tom Igoe
 
 */
 #include <SPI.h>
-#include "Ethernet_Shield_W5200\EthernetV2_0.h"
-#include <EthernetServerV2_0.h>
+#include "EthernetV2_0.h"
+#include "EthernetServerV2_0.h"
 
 //端口定义Dreamer MEGA X2 PORT
 #define SS    10   //Gadgeteer PIN 6
@@ -33,8 +33,8 @@ by Tom Igoe
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = {
-	0xDE, 0xAD, 0x0E, 0x0F, 0xAE, 0xED };
-IPAddress ip(10,100,3,239);
+	0xDE, 0xAD, 0x0E, 0x05, 0xAE, 0xED };
+IPAddress ip(10, 100, 3, 239);
 
 // Initialize the Ethernet server library
 // with the IP address and port you want to use 
@@ -53,8 +53,8 @@ void setup() {
 	delay(10);
 	digitalWrite(nRST, HIGH);
 	delay(200);       // wait W5200 work
-	//				  /////////////////////////////////////////////////////////////
-	//				  // Open serial communications and wait for port to open:
+					  //				  /////////////////////////////////////////////////////////////
+					  //				  // Open serial communications and wait for port to open:
 	Serial.begin(115200);
 	while (!Serial) {
 		; // wait for serial port to connect. Needed for Leonardo only
@@ -64,6 +64,7 @@ void setup() {
 	// start the Ethernet connection and the server:
 	Ethernet.begin(mac, ip);
 	server.begin();
+	_delay_ms(200);
 	Serial.print("server is at ");
 	Serial.println(Ethernet.localIP());
 }
